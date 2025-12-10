@@ -34,5 +34,4 @@
       plugs:
       - desktop
       - wayland
-      - x11
   
