@@ -15,7 +15,6 @@
   parts:
     gerenciadorcs:
       plugin: python
-      python-version: 3.12
       source: https://github.com/JunioDamasceno/gerenciadorcs.git
       stage-packages:
         - python3
