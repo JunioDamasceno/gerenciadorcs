@@ -26,9 +26,14 @@ from login import login
 #Este módulo serve para exibir caixas de diálogo com mensagens para os usuários
 from dialogo import dialogo
 
+#Este módulo importa o arquivo de bakcup
+from importar_backup import importar_backup
+
 import os
 import getpass
 import locale
+import csv
+from datetime import datetime
 
 verificar_arquivos()
 idioma = locale.getdefaultlocale() #Obtém a localização/País para fins de idioma
@@ -77,6 +82,8 @@ class main_window:
         self.barra_menu = self.builder.get_object('barra_menu')
         self.dialogo = self.builder.get_object('dialogo')
         self.rotulo = self.builder.get_object('rotulo')
+        self.salva_CSV = self.builder.get_object('escolher_pasta')
+        self.abrir_CSV = self.builder.get_object('escolher_arquivo')
 
         self.grid.set_column_homogeneous(True)
         self.grid.set_row_homogeneous(True)
@@ -108,6 +115,14 @@ class main_window:
         #Esta variável serve apenas pra chamar a função 'dialogo' dentro de
         #outras funções.
         self.dialogo_c = dialogo
+
+        #Armazena o nome a ser salvo do arquivo de backup .csv
+        self.nome_arquivo_csv = ""
+        self.nome_arq = ""
+        self.folder_path = ""
+        
+        #nome do arquivo a ser importado no backup
+        self.file_name = ""
 
         #Estas variáveis funcionam como chaves que operam 'While' e 'if'
         #na janela de 'login'
@@ -516,8 +531,88 @@ class main_window:
         self.usuario_novo.set_text("")
         self.senha_nova.set_text("")
         
+    def on_backup_csv_clicked(self, object, data=None):
+        self.salva_CSV.show()
+        self.salva_CSV.run()
 
+    def on_escolher_pasta_current_folder_changed(self, widget, data=None):
+        self.folder_path = widget.get_current_folder()
+        print(self.folder_path)
+
+    def on_escolher_pasta_delete_event(self, object, data=None):
+        self.salva_CSV.hide()
+        print('aaaa')
+        #print(self.salva_CSV)
+        self.salva_CSV = self.builder.get_object('escolher_pasta')
+    
+    def on_fechar_diag_escolher_pasta_clicked(self, objetc, data=None):
+        self.salva_CSV.hide()
+        print("Caixa de Diálogo Salvar .CSV fechada com clique no botão fechar.")
+
+
+    def on_salvar_csv_clicked(self, object, data=None):
+        self.nome_arquivo_csv = self.builder.get_object('nome_arquivo_csv')
+        self.nome_arq = self.nome_arquivo_csv.get_text()
+        arq = 0
         
+        if self.nome_arq == '':
+            now = datetime.now()
+            arq = now.strftime("%Y%m%d-%H%M%S")
+            arq = "backup-{}".format(arq)
+        else:
+            arq = self.nome_arq
+
+        #print("Selected folder: {}".format(folder_path))
+
+        with open('{}/{}.csv'.format(self.folder_path,arq), 'w', newline = '') as csvfile:
+            for linha in self.tabela_ux:
+                texto = "".join("{}".format(linha))
+                texto = texto.replace('(', '')
+                texto = texto.replace(')', '')
+                csv.writer(csvfile, delimiter=';').writerow([texto])
+        
+        self.salva_CSV.hide()
+
+        msg_salvar = "Arquivo {}.csv salvo com sucesso".format(arq)
+        self.dialogo_c(self.dialogo, self.rotulo, msg_salvar)
+        self.nome_arquivo_csv.set_text("")
+    
+    def on_importar_backup_csv_clicked(self, object, data=None):
+        print("aaaaaa")
+        self.abrir_CSV.show()
+        self.abrir_CSV.run()
+    
+    def on_escolher_arquivo_file_activated(self, widget, data=None):
+        self.file_name = widget.get_filename()
+        print(self.file_name)
+
+    def on_abrir_csv_clicked(self, object, data=None):
+        print("aaaaaa")
+
+        if self.file_name == "":
+            print("Nenhum arquivo foi selecionado")
+        else:
+            importar_backup(self.file_name, self.aux, ac, nu, se, asu)
+            print("backup importado!")
+            self.tabela_ux = ([])
+            self.lista.clear()
+            self.tabela_ux = tabelalista(self.aux, ac, nu, se, asu)
+            for software_ref in self.tabela_ux:
+                self.lista.append(list(software_ref))
+    
+    def on_escolher_arquivo_delete_event(self, object, data=None):
+        self.abrir_CSV.hide()
+        print('aaaa')
+        #print(self.salva_CSV)
+        self.abrir_CSV = self.builder.get_object('escolher_arquivo')
+
+    def on_fechar_diag_escolher_arquivo_clicked(self, objetc, data=None):
+        self.abrir_CSV.hide()
+        print("Caixa de Diálogo Importar .CSV fechada com clique no botão fechar.")
+
+
+
+
 if __name__ == "__main__":
     main = main_window()
     Gtk.main()

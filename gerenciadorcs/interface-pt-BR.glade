@@ -1,14 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.40.0 -->
 <interface>
-  <requires lib="gtk+" version="3.20"/>
+  <requires lib="gtk+" version="3.6"/>
+  <!-- interface-local-resource-path /run/user/1000/doc/1aef21fb/home -->
+  <object class="GtkFileChooserDialog" id="escolher_arquivo">
+    <property name="can-focus">True</property>
+    <property name="modal">True</property>
+    <property name="destroy-with-parent">True</property>
+    <property name="type-hint">dialog</property>
+    <signal name="delete-event" handler="on_escolher_arquivo_delete_event" swapped="no"/>
+    <signal name="file-activated" handler="on_escolher_arquivo_file_activated" swapped="no"/>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can-focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can-focus">False</property>
+            <property name="layout-style">end</property>
+            <child>
+              <object class="GtkButton" id="abrir_csv">
+                <property name="label" translatable="yes">Abrir</property>
+                <property name="name">abrir_CSV</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_abrir_csv_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="fechar_diag_escolher_arquivo">
+                <property name="label" translatable="yes">Fechar</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_fechar_diag_escolher_arquivo_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkFileChooserDialog" id="escolher_pasta">
+    <property name="can-focus">False</property>
+    <property name="modal">True</property>
+    <property name="destroy-with-parent">True</property>
+    <property name="type-hint">dialog</property>
+    <property name="action">select-folder</property>
+    <signal name="current-folder-changed" handler="on_escolher_pasta_current_folder_changed" swapped="no"/>
+    <signal name="delete-event" handler="on_escolher_pasta_delete_event" swapped="no"/>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can-focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can-focus">False</property>
+            <property name="layout-style">end</property>
+            <child>
+              <object class="GtkButton" id="salvar_csv">
+                <property name="label" translatable="yes">Salvar</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
+                <signal name="clicked" handler="on_salvar_csv_clicked" object="escolher_pasta" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="fechar_diag_escolher_pasta">
+                <property name="label" translatable="yes">Fechar</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_fechar_diag_escolher_pasta_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <!-- n-columns=2 n-rows=1 -->
+          <object class="GtkGrid">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
+            <child>
+              <object class="GtkEntry" id="nome_arquivo_csv">
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="can-default">True</property>
+                <property name="double-buffered">False</property>
+                <property name="hexpand">True</property>
+                <property name="has-frame">False</property>
+                <property name="shadow-type">none</property>
+                <style>
+                  <class name="Nome do Arquivo"/>
+                </style>
+              </object>
+              <packing>
+                <property name="left-attach">1</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="opacity">0</property>
+                <property name="double-buffered">False</property>
+                <property name="margin-end">10</property>
+                <property name="label" translatable="yes">Nome do Arquivo</property>
+                <property name="wrap">True</property>
+              </object>
+              <packing>
+                <property name="left-attach">0</property>
+                <property name="top-attach">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkWindow" id="main_window">
     <property name="can-focus">False</property>
     <property name="title" translatable="yes">Gerenciador de Contas e Senhas</property>
     <property name="window-position">center</property>
     <property name="default-width">600</property>
     <property name="default-height">450</property>
-    <property name="icon">icone_64x64.png</property>
+    <property name="icon">/snap/gerenciadorcs/current/meta/gui/gerenciadorcs.png</property>
     <signal name="destroy" handler="on_main_window_destroy" swapped="no"/>
     <child>
       <object class="GtkBox" id="caixa_principal">
@@ -262,6 +423,7 @@
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
+                    <property name="double-buffered">False</property>
                     <signal name="clicked" handler="on_fechar_clicked" swapped="no"/>
                   </object>
                   <packing>
@@ -277,6 +439,7 @@
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
                     <property name="tooltip-text" translatable="yes">Permite alterar a conta, usuário ou senha cadastrada, selecione uma conta antes de clicar no botão para fazer a alteração.</property>
+                    <property name="double-buffered">False</property>
                     <signal name="clicked" handler="on_botao_alterar_clicked" swapped="no"/>
                   </object>
                   <packing>
@@ -291,6 +454,7 @@
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
+                    <property name="double-buffered">False</property>
                     <signal name="clicked" handler="on_excluir_item_clicked" swapped="no"/>
                   </object>
                   <packing>
@@ -305,12 +469,46 @@
                     <property name="visible">True</property>
                     <property name="can-focus">True</property>
                     <property name="receives-default">True</property>
+                    <property name="double-buffered">False</property>
                     <signal name="clicked" handler="on_botao_cadastrar_clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">True</property>
                     <property name="fill">True</property>
                     <property name="position">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="backup_csv">
+                    <property name="label" translatable="yes">Fazer 
+Backup .csv</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                    <property name="tooltip-text" translatable="yes">Faça um backup em arquivo .csv "sem criptografia"</property>
+                    <property name="double-buffered">False</property>
+                    <signal name="clicked" handler="on_backup_csv_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="importar_backup_csv">
+                    <property name="label" translatable="yes">Importar 
+Backup .csv</property>
+                    <property name="visible">True</property>
+                    <property name="can-focus">True</property>
+                    <property name="receives-default">True</property>
+                    <property name="double-buffered">False</property>
+                    <signal name="clicked" handler="on_importar_backup_csv_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">True</property>
+                    <property name="fill">True</property>
+                    <property name="position">5</property>
                   </packing>
                 </child>
               </object>
@@ -400,13 +598,15 @@
     <property name="can-focus">False</property>
     <property name="double-buffered">False</property>
     <property name="title" translatable="yes">Sobre o Gerenciador de Contas e Senhas</property>
+    <property name="modal">True</property>
     <property name="window-position">center</property>
-    <property name="icon">icone_64x64.png</property>
+    <property name="destroy-with-parent">True</property>
+    <property name="icon">/snap/gerenciadorcs/current/meta/gui/gerenciadorcs.png</property>
     <property name="type-hint">dialog</property>
     <property name="transient-for">main_window</property>
     <property name="program-name">Gerenciador de Contas e Senhas</property>
-    <property name="version">Versão 3.2.1</property>
-    <property name="copyright" translatable="yes">Copyright Junio da Silva Damasceno</property>
+    <property name="version">Versão 4.0</property>
+    <property name="copyright" translatable="yes">Copyright © 2025 Junio da Silva Damasceno. Todos os Direitos Reservados.</property>
     <property name="comments" translatable="yes">O “Gerenciador de Contas e Senhas” de Junio da Silva Damasceno é uma plataforma segura para armazenar contas e senhas. Não se conecta à internet, não armazena dados remotamente e não faz login em contas cadastradas. As informações são criptografadas localmente no computador do usuário.
 
 Doações:
@@ -421,7 +621,7 @@ bc1q5ynlewg5j0pkwgrvltt6tns7zclqa0wwacms7m</property>
     <property name="website-label" translatable="yes">https://github.com/JunioDamasceno/gerenciadorcs</property>
     <property name="authors">Junio da Silva Damasceno</property>
     <property name="translator-credits" translatable="yes">Junio da Silva Damasceno</property>
-    <property name="logo">snap/gerenciadorcs/current/meta/gui/gerenciadorcs.png</property>
+    <property name="logo">/snap/gerenciadorcs/current/meta/gui/gerenciadorcs.png</property>
     <property name="license-type">mit-x11</property>
     <child internal-child="vbox">
       <object class="GtkBox">
@@ -470,7 +670,7 @@ Telefone: 5531982580469</property>
     <property name="window-position">center-always</property>
     <property name="default-width">200</property>
     <property name="destroy-with-parent">True</property>
-    <property name="icon">../../../../../snap/gerenciadorcs/current/meta/gui/gerenciadorcs.png</property>
+    <property name="icon">/snap/gerenciadorcs/current/meta/gui/gerenciadorcs.png</property>
     <property name="type-hint">dialog</property>
     <property name="transient-for">main_window</property>
     <signal name="destroy" handler="on_login_destroy" swapped="no"/>
@@ -571,7 +771,7 @@ cadastre um novo usuário.</property>
                 <property name="margin-right">5</property>
                 <property name="margin-top">5</property>
                 <property name="margin-bottom">5</property>
-                <property name="pixbuf">snap/gerenciadorcs/current/meta/gui/gerenciadorcs.png</property>
+                <property name="pixbuf">/snap/gerenciadorcs/current/meta/gui/gerenciadorcs.png</property>
               </object>
               <packing>
                 <property name="left-attach">0</property>
@@ -612,7 +812,7 @@ cadastre um novo usuário.</property>
                 <property name="can-focus">True</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">10</property>
-                <property name="primary-icon-stock">gtk-orientation-portrait</property>
+                <property name="shadow-type">none</property>
                 <property name="primary-icon-activatable">False</property>
                 <property name="primary-icon-sensitive">False</property>
               </object>
@@ -644,6 +844,8 @@ cadastre um novo usuário.</property>
                 <property name="margin-bottom">10</property>
                 <property name="visibility">False</property>
                 <property name="invisible-char">●</property>
+                <property name="max-width-chars">0</property>
+                <property name="shadow-type">none</property>
                 <property name="primary-icon-stock">gtk-dialog-authentication</property>
                 <property name="primary-icon-activatable">False</property>
                 <property name="primary-icon-sensitive">False</property>
@@ -1071,6 +1273,7 @@ Registro</property>
                 <property name="can-focus">True</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">10</property>
+                <property name="shadow-type">none</property>
               </object>
               <packing>
                 <property name="expand">False</property>

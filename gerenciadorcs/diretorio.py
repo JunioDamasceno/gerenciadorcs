@@ -8,6 +8,7 @@ import locale
 def diretorio():
     idioma = locale.getdefaultlocale()
     print(idioma)
+    #Substituir para o diretório abaixo na versão final
     diretorio = pathlib.Path('/snap/gerenciadorcs/current/')
     print(diretorio)
     arquivos = ''
