@@ -19,13 +19,13 @@
       source: https://github.com/JunioDamasceno/gerenciadorcs.git
       stage-packages:
         - python3
-        # - gir1.2-gtk-3.0
+        - gir1.2-gtk-3.0
         - python3-gi
         - xapp-gtk3-module
       build-packages:
         - libgtk-4-dev 
         - libgtk-3-dev
-        # - libgtk2.0-dev
+        - libgtk2.0-dev
         
   apps:
     gerenciadorcs:
