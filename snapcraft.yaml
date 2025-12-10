@@ -6,7 +6,7 @@
     O gerenciador de Contas e Senhas é uma plataforma onde usuários podem armazenar contas, usuários e senhas de forma segura. Toda informação fica criptografada no computador do usuário. Este programa não se conecta a internet, não armazena dados em núvem e não coleta informações privadas.
    
   confinement: strict
-  base: core18
+  base: core20
   
   architectures:
   - build-on: amd64
