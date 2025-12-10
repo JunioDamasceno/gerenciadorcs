@@ -1,4 +1,4 @@
-Copyright (c) 2020 Junio da Silva Damasceno
+Copyright © 2025 Junio da Silva Damasceno. Todos os Direitos Reservados.
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Gerenciador CS"), to deal
