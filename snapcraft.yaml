@@ -29,7 +29,7 @@
         
   apps:
     gerenciadorcs:
-      command: python3 -m gerenciadorcs.gerenciadorcs
+      command: bin/start
       extensions: [gnome]
       plugs:
       - desktop
