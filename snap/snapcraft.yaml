@@ -17,6 +17,7 @@
     gerenciadorcs:
       plugin: python
       source: https://github.com/JunioDamasceno/gerenciadorcs.git
+      source-subdir: gerenciadorcs  # Aponta para o subdiretório com o código
       stage-packages:
         - python3
         - gir1.2-gtk-3.0
