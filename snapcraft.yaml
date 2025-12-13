@@ -38,7 +38,7 @@
       command: bin/start
       extensions: [gnome]
       plugs:
-      - desktop
-      - wayland
-      - x11
+        - desktop
+        - wayland
+        - x11
   
