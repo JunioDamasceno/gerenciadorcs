@@ -27,11 +27,11 @@
         - libgtk-4-dev 
         - libgtk-3-dev
         - libgtk2.0-dev
-      override-build: |
+      # override-build: |
       # Copia o bin/start para o diretório de instalação
-        install -Dm755 $CRAFT_PROJECT_DIR/bin/start $CRAFT_PART_INSTALL/bin/start
+        # install -Dm755 $CRAFT_PROJECT_DIR/bin/start $CRAFT_PART_INSTALL/bin/start
       # Continua com o build padrão do plugin Python
-        python -m pip install -e $CRAFT_PART_SRC --prefix $CRAFT_PART_INSTALL/usr
+        # python -m pip install -e $CRAFT_PART_SRC --prefix $CRAFT_PART_INSTALL/usr
         
   apps:
     gerenciadorcs:
