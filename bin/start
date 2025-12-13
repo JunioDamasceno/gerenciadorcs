@@ -1,2 +1,2 @@
 #!/bin/sh
-exec python3 "$SNAP/bin/gerenciadorcs.py" "$@"
+exec "$SNAP/usr/bin/python3" "$SNAP/gerenciadorcs/gerenciadorcs.py" "$@"
