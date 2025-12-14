@@ -30,7 +30,7 @@
       
   apps:
     gerenciadorcs:
-      command: bin/start
+      command: python3 $SNAP/gerenciadorcs/gerenciadorcs.py
       extensions: [gnome]
       plugs:
         - desktop
