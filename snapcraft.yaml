@@ -24,7 +24,6 @@
         - libpython3-stdlib
         - gir1.2-gtk-3.0
         - python3-gi
-        - libxapp-gtk3-module
       build-packages:
         - libgtk-4-dev 
         - libgtk-3-dev
