@@ -6,7 +6,7 @@
     O gerenciador de Contas e Senhas é uma plataforma onde usuários podem armazenar contas, usuários e senhas de forma segura. Toda informação fica criptografada no computador do usuário. Este programa não se conecta a internet, não armazena dados em núvem e não coleta informações privadas.
    
   confinement: strict
-  base: core24
+  base: core22
   
   platforms:
     amd64:
@@ -20,6 +20,8 @@
       source-subdir: gerenciadorcs  # Aponta para o subdiretório com o código
       stage-packages:
         - python3
+        - python3-minimal
+        - libpython3-stdlib
         - gir1.2-gtk-3.0
         - python3-gi
         - libxapp-gtk3-module
