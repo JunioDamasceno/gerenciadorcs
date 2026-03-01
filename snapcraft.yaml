@@ -2,33 +2,38 @@ name: gerenciadorcs
 version: '4.0'
 summary: Um gerenciador de contas e senhas
 description: |
-  Gerenciador de Contas e Senhas seguro e offline.
+  O gerenciador de Contas e Senhas é uma plataforma onde usuários podem 
+  armazenar contas, usuários e senhas de forma segura e offline.
    
 confinement: strict
 base: core22
 
+# Força a build apenas para amd64
+platforms:
+  amd64:
+    build-on: [amd64]
+    build-for: [amd64]
+
 parts:
   gerenciadorcs:
     plugin: python
-    source: https://github.com/JunioDamasceno/gerenciadorcs.git
-    # Removido o source-subdir para que o plugin encontre o setup.py na raiz
+    source: .  # Como o setup.py está na raiz, usamos o diretório atual
     build-packages:
       - libgirepository1.0-dev
       - pkg-config
     stage-packages:
       - python3-gi
       - gir1.2-gtk-3.0
+      - libpython3-stdlib
 
 apps:
   gerenciadorcs:
     extensions: [gnome]
-    # Se o setup.py define um console_script chamado 'gerenciadorcs':
-    # command: bin/gerenciadorcs 
-    # Ou, se quiser chamar o script diretamente:
-    command: python3 $SNAP/gerenciadorcs/gerenciadorcs.py
+    # 'bin/gerenciadorcs' é gerado pelo entry_point que adicionamos no setup.py
+    command: bin/gerenciadorcs
     plugs:
       - desktop
       - desktop-legacy
       - wayland
       - x11
-      - home  # Adicionado para permitir salvar o banco de dados local
+      - home
