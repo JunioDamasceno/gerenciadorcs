@@ -14,6 +14,11 @@ setup(
         ]
     },
     include_package_data=True,
+    entry_points={
+        'console_scripts': [
+            'gerenciadorcs = gerenciadorcs.gerenciadorcs:main',
+        ],
+    },
     description = 'um gerenciador de contas, usuários e senhas',
     url = 'https://github.com/JunioDamasceno/gerenciadorcs',
     license = 'MIT',
