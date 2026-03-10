@@ -1,6 +1,12 @@
 #!/usr/bin/python
 # encoding: utf-8
 
+import sys
+import os
+
+diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(diretorio_atual)
+
 #Este módulo verifica os arquivos binários.
 from criar_caminho import verificar_arquivos
 
@@ -29,7 +35,6 @@ from dialogo import dialogo
 #Este módulo importa o arquivo de bakcup
 from importar_backup import importar_backup
 
-import os
 import getpass
 import locale
 import csv
