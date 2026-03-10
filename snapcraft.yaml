@@ -24,6 +24,7 @@ parts:
     stage-packages:
       - python3-gi
       - gir1.2-gtk-3.0
+      - libgirepository-1.0-1
       - libpython3-stdlib
 
 apps:
