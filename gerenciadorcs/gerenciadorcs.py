@@ -7,6 +7,8 @@ import os
 diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(diretorio_atual)
 
+snap_data = os.environ.get('SNAP_USER_DATA', os.path.expanduser('~'))
+
 #Este módulo verifica os arquivos binários.
 from criar_caminho import verificar_arquivos
 
@@ -45,16 +47,16 @@ idioma = locale.getdefaultlocale() #Obtém a localização/País para fins de id
 system_user = getpass.getuser() #obtém o nome do usuário do sistema linux
 
 #Armazena o diretório dos arquivos binários nas variáveis
-ac = '/home/' + system_user + '/snap/gerenciadorcs/current/bin/ac.bin'
-asu = '/home/' + system_user + '/snap/gerenciadorcs/current/bin/asu.bin'
-nu = '/home/' + system_user + '/snap/gerenciadorcs/current/bin/nu.bin'
-se = '/home/' + system_user + '/snap/gerenciadorcs/current/bin/se.bin'
-sx = '/home/' + system_user + '/snap/gerenciadorcs/current/bin/sx.bin'
-ux = '/home/' + system_user + '/snap/gerenciadorcs/current/bin/ux.bin'
+ac = os.path.join(snap_data, 'ac.bin')
+asu = os.path.join(snap_data, 'asu.bin')
+nu = os.path.join(snap_data, 'nu.bin')
+se = os.path.join(snap_data, 'se.bin')
+sx = os.path.join(snap_data, 'sx.bin')
+ux = os.path.join(snap_data, 'ux.bin')
 
 #Importa a biblioteca Gtk
 import gi
-gi.require_version('Gtk', "3.0")
+gi.require_version('Gtk', "3.6")
 from gi.repository import Gtk
 
 #Aqui inicia o programa
