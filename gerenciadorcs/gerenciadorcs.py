@@ -12,30 +12,50 @@ snap_data = os.environ.get('SNAP_USER_DATA', os.path.expanduser('~'))
 #Este módulo verifica os arquivos binários.
 from criar_caminho import verificar_arquivos
 
+print("criar_caminho Ok")
+
 #Este módulo localiza e armazena o diretório do arquivo 'interface.glade'
 from diretorio import diretorio
+
+print("diretorio Ok")
 
 #Este módulo cria tabelas com os dados binários.
 from tabelalista import tabelalista
 
+print("tabelalista Ok")
+
 #Este módulo exclui dados dos arquivos binários.
 from excluir import excluir
 
+print("excluir Ok")
+
 #Este módulo altera dados nos arquivos binários
-from confirmar_alteração import confirmar_alteração
+from confirmar_alteracao import confirmar_alteração
+
+print("confirmar_alteracao Ok")
 
 #Este módulo grava dados nos arquivos binários
 from gravar_registro import gravar_registro
 
+print("gravar_registro Ok")
+
 from cadastrar_usuario import cadastrar_usuario
 
+print("cadastrar_usuario Ok")
+
 from login import login
+
+print("login Ok")
 
 #Este módulo serve para exibir caixas de diálogo com mensagens para os usuários
 from dialogo import dialogo
 
+print("dialogo Ok")
+
 #Este módulo importa o arquivo de bakcup
 from importar_backup import importar_backup
+
+print("importar_backup Ok")
 
 import getpass
 import locale
@@ -43,8 +63,12 @@ import csv
 from datetime import datetime
 
 verificar_arquivos()
+
+print("Execução do módulo verificar_arquivos Ok")
 idioma = locale.getdefaultlocale() #Obtém a localização/País para fins de idioma
 system_user = getpass.getuser() #obtém o nome do usuário do sistema linux
+
+
 
 #Armazena o diretório dos arquivos binários nas variáveis
 ac = os.path.join(snap_data, 'ac.bin')
@@ -54,10 +78,16 @@ se = os.path.join(snap_data, 'se.bin')
 sx = os.path.join(snap_data, 'sx.bin')
 ux = os.path.join(snap_data, 'ux.bin')
 
+print("localização dos binários Ok")
+
 #Importa a biblioteca Gtk
 import gi
 gi.require_version('Gtk', "3.6")
 from gi.repository import Gtk
+
+print("importar biblioteca Gtk Ok")
+
+print("carregando a interface...")
 
 #Aqui inicia o programa
 class main_window:
