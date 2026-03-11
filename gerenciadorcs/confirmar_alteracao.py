@@ -8,7 +8,7 @@
 import locale
 idioma = locale.getdefaultlocale()
 
-def confirmar_alteração(aux, ac, nu, se, asu, conta_gravada, usuario_gravado, senha_gravada, conta_nova, usuario_novo, senha_nova):
+def confirmar_alteracao(aux, ac, nu, se, asu, conta_gravada, usuario_gravado, senha_gravada, conta_nova, usuario_novo, senha_nova):
 
     #Cria tabelas temporárias pra armazenar os dados dos arquivos binários
     tabela_ac = []
