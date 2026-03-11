@@ -30,7 +30,7 @@ from excluir import excluir
 print("excluir Ok")
 
 #Este módulo altera dados nos arquivos binários
-from confirmar_alteracao import confirmar_alteração
+from confirmar_alteracao import confirmar_alteracao
 
 print("confirmar_alteracao Ok")
 
