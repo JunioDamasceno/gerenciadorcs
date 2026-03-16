@@ -23,7 +23,7 @@ def verificar_arquivos():
                 open(snap_data + '/.gerenciadorcs4-0' + '/{}'.format(i), 'w')
                 print('Arquivo {} foi criado.'.format(i))
             else:
-                print('O arquivo binário {} não foi criado porque já existem no diretório atual.'.format(i))
+                print('O arquivo binário {} não foi criado porque já existe no diretório atual.'.format(i))
         else:
             print('O arquivo {} não foi criado porque já existe na versão anterior.'.format(i))
             shutil.move(caminho_antigo + '/{}'.format(i), snap_data + '/.gerenciadorcs4-0' + '/{}'.format(i))
