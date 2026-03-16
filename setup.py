@@ -14,9 +14,7 @@ setup(
         ]
     },
     include_package_data=True,
-    install_requires=[
-        'PyGObject',
-    ],
+    install_requires=['PyGObject'],
     entry_points={
         'console_scripts': [
             'gerenciadorcs = gerenciadorcs.gerenciadorcs:main',
