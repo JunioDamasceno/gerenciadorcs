@@ -17,10 +17,14 @@ def verificar_arquivos():
 
     for i in arquivo_antigo:
         if not os.path.exists(caminho_antigo + '/{}'.format(i)):
-            print('não existe')
-            open(snap_data + '/.gerenciadorcs4-0' + '/{}'.format(i), 'w')
-            print('Arquivo {} foi criado.'.format(i))
+            print('O Arquivo binário {} da versão anterior não existe.'.format(i))
+            if not os.path.exists(snap_data + '/.gerenciadorcs4-0' + '/{}'.format(i)):
+                print("O arquivo binário {} não existe na versão atual.".format(i))
+                open(snap_data + '/.gerenciadorcs4-0' + '/{}'.format(i), 'w')
+                print('Arquivo {} foi criado.'.format(i))
+            else:
+                print('O arquivo binário {} não foi criado porque já existem no diretório atual.'.format(i))
         else:
-            print('existe')
+            print('O arquivo {} não foi criado porque já existe na versão anterior.'.format(i))
             shutil.move(caminho_antigo + '/{}'.format(i), snap_data + '/.gerenciadorcs4-0' + '/{}'.format(i))
-            print('O arquivo {} não foi criado porque já existe.'.format(i))
+            print( 'Arquivo {} foi migrado para diretório atual do snap.'.format(i))
