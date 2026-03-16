@@ -24,5 +24,3 @@ def verificar_arquivos():
             print('existe')
             shutil.move(caminho_antigo + '/{}'.format(i), snap_data + '/.gerenciadorcs4-0' + '/{}'.format(i))
             print('O arquivo {} não foi criado porque já existe.'.format(i))
-      
-verificar_arquivos()
