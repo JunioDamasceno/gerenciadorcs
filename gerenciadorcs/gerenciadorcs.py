@@ -4,10 +4,17 @@
 import sys
 import os
 
+#Importa a biblioteca Gtk
+import gi
+gi.require_version('Gtk', "3.0")
+from gi.repository import Gtk
+
 diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(diretorio_atual)
 
 snap_data = os.environ.get('SNAP_USER_DATA', os.path.expanduser('~'))
+
+print(snap_data)
 
 #Este módulo verifica os arquivos binários.
 from criar_caminho import verificar_arquivos
@@ -30,7 +37,7 @@ from excluir import excluir
 print("excluir Ok")
 
 #Este módulo altera dados nos arquivos binários
-from confirmar_alteracao import confirmar_alteracao
+from confirmar_alteracao import confirmar_alteração
 
 print("confirmar_alteracao Ok")
 
@@ -68,22 +75,15 @@ print("Execução do módulo verificar_arquivos Ok")
 idioma = locale.getdefaultlocale() #Obtém a localização/País para fins de idioma
 system_user = getpass.getuser() #obtém o nome do usuário do sistema linux
 
-
-
 #Armazena o diretório dos arquivos binários nas variáveis
-ac = os.path.join(snap_data, 'ac.bin')
-asu = os.path.join(snap_data, 'asu.bin')
-nu = os.path.join(snap_data, 'nu.bin')
-se = os.path.join(snap_data, 'se.bin')
-sx = os.path.join(snap_data, 'sx.bin')
-ux = os.path.join(snap_data, 'ux.bin')
+ac = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'ac.bin')
+asu = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'asu.bin')
+nu = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'nu.bin')
+se = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'se.bin')
+sx = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'sx.bin')
+ux = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'ux.bin')
 
 print("localização dos binários Ok")
-
-#Importa a biblioteca Gtk
-import gi
-gi.require_version('Gtk', "3.6")
-from gi.repository import Gtk
 
 print("importar biblioteca Gtk Ok")
 
