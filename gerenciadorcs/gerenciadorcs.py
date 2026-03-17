@@ -12,7 +12,7 @@ from gi.repository import Gtk
 diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(diretorio_atual)
 
-snap_data = os.environ.get('SNAP_USER_DATA', os.path.expanduser('~'))
+snap_data = os.environ.get('SNAP_USER_COMMON', os.path.expanduser('~'))
 
 print(snap_data)
 
@@ -84,6 +84,8 @@ sx = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'sx.bin')
 ux = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'ux.bin')
 
 print("localização dos binários Ok")
+
+print('\n{}\n{}\n{}\n{}\n{}\n{}'.format(ac, asu, nu, se, sx, ux))
 
 print("carregando a interface...")
 
