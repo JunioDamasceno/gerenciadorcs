@@ -2,35 +2,30 @@
 
 import pathlib
 import os
-import getpass
 import locale
 
 def diretorio():
     idioma = locale.getdefaultlocale()
     print(idioma)
-    #Substituir para o diretório abaixo na versão final
-    diretorio = pathlib.Path('/snap/gerenciadorcs/current/')
-    print(diretorio)
-    arquivos = ''
-    a = ''
+    snap_root = os.environ.get('SNAP', '.') 
+    base_path = pathlib.Path(snap_root)
+
+    interface = ''
 
     if idioma == ('pt_BR', 'UTF-8'):
         print('The Language of the system is Portugese of Brazil')
-        arquivos = diretorio.glob('**/interface-pt-BR.glade')
+        interface = next(base_path.glob('**/interface-pt-BR.glade'))
 
     elif idioma == ('en_US', 'UTF-8'):
         print('The language of the system is English USA')
-        arquivos = diretorio.glob('**/interface-en-US.glade')
+        interface = next(base_path.glob('**/interface-en-US.glade'))
     elif idioma == ('es_ES', 'UTF-8'):
         print('The Language of the system is Spanish of Spain')
-        arquivos = diretorio.glob('**/interface-ES.glade')
+        interface = next(base_path.glob('**/interface-ES.glade'))
     else:
-        arquivos = diretorio.glob('**/interface-en-US.glade')
+        interface = next(base_path.glob('**/interface-en-US.glade'))
+    
+    type(interface)
+    print(interface)
 
-    for arquivo in arquivos:
-        a = "{}".format(arquivo)
-        print(a)
-
-    return(a)
-
-print(diretorio())
+    return(str(interface))

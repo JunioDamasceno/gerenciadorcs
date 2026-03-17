@@ -85,8 +85,6 @@ ux = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'ux.bin')
 
 print("localização dos binários Ok")
 
-print("importar biblioteca Gtk Ok")
-
 print("carregando a interface...")
 
 #Aqui inicia o programa
@@ -648,7 +646,11 @@ class main_window:
         print("Caixa de Diálogo Importar .CSV fechada com clique no botão fechar.")
 
 
-
+def main():
+    # Instancia a classe que você criou
+    app = main_window()
+    # Inicia o loop principal do Gtk para a janela não fechar imediatamente
+    Gtk.main()
 
 if __name__ == "__main__":
     main = main_window()
