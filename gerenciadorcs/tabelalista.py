@@ -68,5 +68,5 @@ def tabelalista(aux, ac, nu, se, asu):
             c3 = c3 + 1
         c2 = c2 + 1
 
-    tabela_ux.sort()
+    tabela_ux.sort(key=lambda linha: linha[0].lower())
     return(tabela_ux)

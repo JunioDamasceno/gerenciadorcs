@@ -14,55 +14,33 @@ sys.path.append(diretorio_atual)
 
 snap_data = os.environ.get('SNAP_USER_COMMON', os.path.expanduser('~'))
 
-print(snap_data)
-
 #Este módulo verifica os arquivos binários.
 from criar_caminho import verificar_arquivos
-
-print("criar_caminho Ok")
 
 #Este módulo localiza e armazena o diretório do arquivo 'interface.glade'
 from diretorio import diretorio
 
-print("diretorio Ok")
-
 #Este módulo cria tabelas com os dados binários.
 from tabelalista import tabelalista
-
-print("tabelalista Ok")
 
 #Este módulo exclui dados dos arquivos binários.
 from excluir import excluir
 
-print("excluir Ok")
-
 #Este módulo altera dados nos arquivos binários
 from confirmar_alteracao import confirmar_alteracao
-
-print("confirmar_alteracao Ok")
 
 #Este módulo grava dados nos arquivos binários
 from gravar_registro import gravar_registro
 
-print("gravar_registro Ok")
-
 from cadastrar_usuario import cadastrar_usuario
 
-print("cadastrar_usuario Ok")
-
 from login import login
-
-print("login Ok")
 
 #Este módulo serve para exibir caixas de diálogo com mensagens para os usuários
 from dialogo import dialogo
 
-print("dialogo Ok")
-
 #Este módulo importa o arquivo de bakcup
 from importar_backup import importar_backup
-
-print("importar_backup Ok")
 
 import getpass
 import locale
@@ -71,7 +49,6 @@ from datetime import datetime
 
 verificar_arquivos()
 
-print("Execução do módulo verificar_arquivos Ok")
 idioma = locale.getdefaultlocale() #Obtém a localização/País para fins de idioma
 system_user = getpass.getuser() #obtém o nome do usuário do sistema linux
 
@@ -82,12 +59,6 @@ nu = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'nu.bin')
 se = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'se.bin')
 sx = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'sx.bin')
 ux = os.path.join(snap_data + '/.gerenciadorcs4-0/', 'ux.bin')
-
-print("localização dos binários Ok")
-
-print('\n{}\n{}\n{}\n{}\n{}\n{}'.format(ac, asu, nu, se, sx, ux))
-
-print("carregando a interface...")
 
 #Aqui inicia o programa
 class main_window:
@@ -300,28 +271,15 @@ class main_window:
                 
     #Ativa o clique duplo na lista
     def on_lista_row_activated(self, widget, path, column):
-        print("clique duplo")
-        model, iter = self.treeview_selection.get_selected()
-        print('path= %s, column= %s' % (path, column))
-        print('Model = %s ,Iter =  %s' % (model,iter))
-        print(" COLUNA =0 - DADO =  %s  " % ( model.get_value(iter,0)))
-        print(" COLUNA =1 - DADO =  %s  " % ( model.get_value(iter,1)))
-        print(" COLUNA =2 - DADO =  %s  " % ( model.get_value(iter,2)))
+        print("clique duplo.")
 
     #Ativa o clique único na lista
     def on_cursor_changed(self, widget):
         print ("clique único")
         model,iter = self.treeview_selection.get_selected()
-        print ('Model = %s ,Iter =  %s' % (model,iter))
-        print ("COLUNA =0 - DADO =  %s  " % ( model.get_value(iter,0)))
-        print ("COLUNA =1 - DADO =  %s  " % ( model.get_value(iter,1)))
-        print ("COLUNA =2 - DADO =  %s  " % ( model.get_value(iter, 2)))
         self.conta_ch = model.get_value(iter, 0)
         self.user_ch =  model.get_value(iter, 1)
         self.sx_ch =    model.get_value(iter, 2)
-        print ("o valor armazenado em conta_ch é: ", self.conta_ch)
-        print ("o valor armazenado em user_ch é: ", self.user_ch)
-        print ("o valor armazenado em sx_ch é: ", self.sx_ch)
 
     #Fecha o programa por completo se o usuário clicar no botão 'sair' na
     #janela principal 'main_window'.
@@ -489,7 +447,6 @@ class main_window:
             self.dialogo_c(self.dialogo, self.rotulo, msg_selecione_item)
         else:
             response = self.alterar.run()
-            print(response)
             self.alterar.hide()
 
     #Se o usuário clicar no botão 'x' no canto direito da caixa de diálogo
@@ -539,7 +496,7 @@ class main_window:
         else:
             #chama o módulo "confirmar_alteração" para verificar os dados e
             #fazer a alteração nos arquivos binários
-            msg_alterar_s = confirmar_alteração(
+            msg_alterar_s = confirmar_alteracao(
                 self.aux, ac, nu, se, asu, 
                 conta_gravada, usuario_gravado, 
                 senha_gravada, conta_nova, usuario_novo,
@@ -574,16 +531,13 @@ class main_window:
 
     def on_escolher_pasta_current_folder_changed(self, widget, data=None):
         self.folder_path = widget.get_current_folder()
-        print(self.folder_path)
 
     def on_escolher_pasta_delete_event(self, object, data=None):
         self.salva_CSV.hide()
-        print('aaaa')
-        #print(self.salva_CSV)
         self.salva_CSV = self.builder.get_object('escolher_pasta')
     
     def on_fechar_diag_escolher_pasta_clicked(self, objetc, data=None):
-        self.salva_CSV.hide()
+        self.salva_CSV.close()
         print("Caixa de Diálogo Salvar .CSV fechada com clique no botão fechar.")
 
 
@@ -599,8 +553,6 @@ class main_window:
         else:
             arq = self.nome_arq
 
-        #print("Selected folder: {}".format(folder_path))
-
         with open('{}/{}.csv'.format(self.folder_path,arq), 'w', newline = '') as csvfile:
             for linha in self.tabela_ux:
                 texto = "".join("{}".format(linha))
@@ -615,36 +567,39 @@ class main_window:
         self.nome_arquivo_csv.set_text("")
     
     def on_importar_backup_csv_clicked(self, object, data=None):
-        print("aaaaaa")
         self.abrir_CSV.show()
         self.abrir_CSV.run()
     
-    def on_escolher_arquivo_file_activated(self, widget, data=None):
+    def on_escolher_arquivo_selection_changed(self, widget, data=None):
         self.file_name = widget.get_filename()
-        print(self.file_name)
 
-    def on_abrir_csv_clicked(self, object, data=None):
-        print("aaaaaa")
-
+    def on_importar_csv_clicked(self, object, data=None):
         if self.file_name == "":
-            print("Nenhum arquivo foi selecionado")
+            msg_importar = "Nenhum arquivo foi selecionado."
+            self.dialogo_c(self.dialogo, self.rotulo, msg_importar)
         else:
-            importar_backup(self.file_name, self.aux, ac, nu, se, asu)
-            print("backup importado!")
+            imp_return = importar_backup(self.file_name, self.aux, ac, nu, se, asu, self.tabela_ux)
             self.tabela_ux = ([])
             self.lista.clear()
             self.tabela_ux = tabelalista(self.aux, ac, nu, se, asu)
             for software_ref in self.tabela_ux:
                 self.lista.append(list(software_ref))
+            
+            if imp_return == True:
+                msg_importar = "Arquivo importado."
+                self.dialogo_c(self.dialogo, self.rotulo, msg_importar)
+                self.abrir_CSV.hide()
+            else:
+                msg_importar = "Nenhum dado foi importado, pois já foram incluídos."
+                self.dialogo_c(self.dialogo, self.rotulo, msg_importar)
+                self.abrir_CSV.hide()
     
     def on_escolher_arquivo_delete_event(self, object, data=None):
         self.abrir_CSV.hide()
-        print('aaaa')
-        #print(self.salva_CSV)
         self.abrir_CSV = self.builder.get_object('escolher_arquivo')
 
     def on_fechar_diag_escolher_arquivo_clicked(self, objetc, data=None):
-        self.abrir_CSV.hide()
+        self.abrir_CSV.close()
         print("Caixa de Diálogo Importar .CSV fechada com clique no botão fechar.")
 
 
