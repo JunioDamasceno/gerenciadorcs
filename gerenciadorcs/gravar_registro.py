@@ -4,8 +4,7 @@ def gravar_registro(aux, conta_name, nome_usuario, conta_ps, ac, nu, se, asu, ta
 
     chave = 0
     c = 0
-    print(conta_name, nome_usuario, conta_ps)
-    #print(type(conta_name, nome_usuario, conta_ps))
+    
     for linha in tabela_ux:
         if (tabela_ux[c][0] ==  conta_name and tabela_ux[c][1] == nome_usuario and tabela_ux[c][2] == conta_ps):
             chave = 1
