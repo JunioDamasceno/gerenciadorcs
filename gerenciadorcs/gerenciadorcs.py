@@ -277,9 +277,17 @@ class main_window:
     def on_cursor_changed(self, widget):
         print ("clique único")
         model,iter = self.treeview_selection.get_selected()
-        self.conta_ch = model.get_value(iter, 0)
-        self.user_ch =  model.get_value(iter, 1)
-        self.sx_ch =    model.get_value(iter, 2)
+        
+        if iter is not None:
+            self.conta_ch = model.get_value(iter, 0)
+            self.user_ch =  model.get_value(iter, 1)
+            self.sx_ch =    model.get_value(iter, 2)
+            print('linha selecionada')
+        else:
+            self.conta_ch = None
+            self.user_ch = None
+            self.sx_ch = None
+            print('nenhuma linha selecionada')
 
     #Fecha o programa por completo se o usuário clicar no botão 'sair' na
     #janela principal 'main_window'.
