@@ -4,6 +4,8 @@ summary: Um gerenciador de contas e senhas
 description: |
   O gerenciador de Contas e Senhas é uma plataforma onde usuários podem 
   armazenar contas, usuários e senhas de forma segura e offline.
+
+icon: snap/gui/gerenciadorcs.png
    
 confinement: strict
 base: core22
