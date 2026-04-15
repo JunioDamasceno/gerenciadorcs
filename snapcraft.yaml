@@ -38,3 +38,5 @@ apps:
       - wayland
       - x11
       - home
+      - gsettings
+      - mount-observe
