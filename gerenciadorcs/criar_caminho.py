@@ -26,18 +26,23 @@ def verificar_arquivos():
         caminho_origem = os.path.join(origem_base, i)
         caminho_destino = os.path.join(destino_base, i)
 
-    
-        if os.path.exists(caminho_origem):
-            try:
-                # USAMOS COPY2 PARA EVITAR ERRO DE PERMISSÃO (READ-ONLY)
-                shutil.copy2(caminho_origem, caminho_destino)
-                print(f'Arquivo {i} foi migrado da versão anterior com sucesso.')
-            except Exception as e:
-                print(f'Erro ao migrar {i}: {e}')
-            
-        # Se não existe em lugar nenhum, criamos um novo do zero
+        # Se o arquivo já existe no destino (pasta do usuário), não fazemos nada
+        if os.path.exists(caminho_destino):
+            print(f'Arquivo {i} já existe no diretório atual.')
+        
+        # Se NÃO existe no destino, tentamos migrar da origem (pacote)
         else:
-            print(f'O arquivo binário {i} não existe na versão anterior. Criando novo...')
-            with open(caminho_destino, 'w') as f:
-                pass
-            print(f'Arquivo {i} foi criado.')
+            if os.path.exists(caminho_origem):
+                try:
+                    # USAMOS COPY2 PARA EVITAR ERRO DE PERMISSÃO (READ-ONLY)
+                    shutil.copy2(caminho_origem, caminho_destino)
+                    print(f'Arquivo {i} foi migrado da versão anterior com sucesso.')
+                except Exception as e:
+                    print(f'Erro ao migrar {i}: {e}')
+
+            # Se não existe em lugar nenhum, criamos um novo do zero
+            else:
+                print(f'O arquivo binário {i} não existe na versão anterior. Criando novo...')
+                with open(caminho_destino, 'w') as f:
+                    pass
+                print(f'Arquivo {i} foi criado.')
