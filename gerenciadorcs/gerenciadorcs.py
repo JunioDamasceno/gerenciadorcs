@@ -20,6 +20,8 @@ from criar_caminho import verificar_arquivos
 #Este módulo localiza e armazena o diretório do arquivo 'interface.glade'
 from diretorio import diretorio
 
+from lingua import lingua
+
 #Este módulo cria tabelas com os dados binários.
 from tabelalista import tabelalista
 
@@ -49,7 +51,7 @@ from datetime import datetime
 
 verificar_arquivos()
 
-idioma = locale.getdefaultlocale() #Obtém a localização/País para fins de idioma
+idioma = lingua() #Obtém a localização/País para fins de idioma
 system_user = getpass.getuser() #obtém o nome do usuário do sistema linux
 
 #Armazena o diretório dos arquivos binários nas variáveis
@@ -277,7 +279,7 @@ class main_window:
     def on_cursor_changed(self, widget):
         print ("clique único")
         model,iter = self.treeview_selection.get_selected()
-        
+
         if iter is not None:
             self.conta_ch = model.get_value(iter, 0)
             self.user_ch =  model.get_value(iter, 1)
@@ -399,7 +401,7 @@ class main_window:
         else:
             #O módulo 'gravar_registro' recebe os dados digitados na caixa de diálogo
             #'window_cadastrar' e grava nos arquivos binários
-            msg_gravar = gravar_registro(self.aux, conta_name, nome_usuario, conta_ps, ac, nu, se, asu, self.tabela_ux)
+            msg_gravar = gravar_registro(self.aux, conta_name, nome_usuario, conta_ps, ac, nu, se, asu, self.tabela_ux, idioma)
             self.dialogo_c(self.dialogo, self.rotulo, msg_gravar)
 
             if (msg_gravar == "Dados Gravados com Sucesso" or msg_gravar == "Data Saved Successfully" or msg_gravar == "Datos registrados correctamente"):
@@ -508,7 +510,8 @@ class main_window:
                 self.aux, ac, nu, se, asu, 
                 conta_gravada, usuario_gravado, 
                 senha_gravada, conta_nova, usuario_novo,
-                senha_nova
+                senha_nova,
+                idioma
                 )
             self.dialogo_c(self.dialogo, self.rotulo, msg_alterar_s)
 
@@ -570,7 +573,13 @@ class main_window:
         
         self.salva_CSV.hide()
 
-        msg_salvar = "Arquivo {}.csv salvo com sucesso".format(arq)
+        if idioma == ('pt_BR', 'UTF-8'):
+            msg_salvar = "Arquivo {}.csv salvo com sucesso.".format(arq)
+        elif idioma == ('en_US', 'UTF-8'):
+            msg_salvar = "File {}.csv saved successfully.".format(arq)
+        elif idioma == ('es_ES', 'UTF-8'):
+            msg_salvar = "El archivo {}.csv se guardó correctamente.".format(arq)
+        
         self.dialogo_c(self.dialogo, self.rotulo, msg_salvar)
         self.nome_arquivo_csv.set_text("")
     
@@ -583,7 +592,12 @@ class main_window:
 
     def on_importar_csv_clicked(self, object, data=None):
         if self.file_name == "":
-            msg_importar = "Nenhum arquivo foi selecionado."
+            if idioma == ('pt_BR', 'UTF-8'):
+                msg_importar = "Nenhum arquivo foi selecionado."
+            elif idioma == ('en_US', 'UTF-8'):
+                msg_importar = "No files were selected."
+            elif idioma == ('es_ES', 'UTF-8'):
+                msg_importar = "No se seleccionó ningún archivo."
             self.dialogo_c(self.dialogo, self.rotulo, msg_importar)
         else:
             imp_return = importar_backup(self.file_name, self.aux, ac, nu, se, asu, self.tabela_ux)
@@ -594,11 +608,21 @@ class main_window:
                 self.lista.append(list(software_ref))
             
             if imp_return == True:
-                msg_importar = "Arquivo importado."
+                if idioma == ('pt_BR', 'UTF-8'):
+                    msg_importar = "Arquivo importado."
+                elif idioma == ('en_US', 'UTF-8'):
+                    msg_importar = "Imported file."
+                elif idioma == ('es_ES', 'UTF-8'):
+                    msg_importar = "Archivo importado."
                 self.dialogo_c(self.dialogo, self.rotulo, msg_importar)
                 self.abrir_CSV.hide()
             else:
-                msg_importar = "Nenhum dado foi importado, pois já foram incluídos."
+                if idioma == ('pt_BR', 'UTF-8'):
+                    msg_importar = "Nenhum dado foi importado, pois já foram incluídos."
+                elif idioma == ('en_US', 'UTF-8'):
+                    msg_importar = "No data was imported, as it has already been included."
+                elif idioma == ('es_ES', 'UTF-8'):
+                    msg_importar = "No se importaron datos, ya que estaban incluidos previamente."
                 self.dialogo_c(self.dialogo, self.rotulo, msg_importar)
                 self.abrir_CSV.hide()
     

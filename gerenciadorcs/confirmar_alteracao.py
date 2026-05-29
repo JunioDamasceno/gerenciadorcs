@@ -5,10 +5,7 @@
 #Os dados novos;
 #Faz as alterações nos arquivos binários
 
-import locale
-idioma = locale.getdefaultlocale()
-
-def confirmar_alteracao(aux, ac, nu, se, asu, conta_gravada, usuario_gravado, senha_gravada, conta_nova, usuario_novo, senha_nova):
+def confirmar_alteracao(aux, ac, nu, se, asu, conta_gravada, usuario_gravado, senha_gravada, conta_nova, usuario_novo, senha_nova, idioma):
 
     #Cria tabelas temporárias pra armazenar os dados dos arquivos binários
     tabela_ac = []

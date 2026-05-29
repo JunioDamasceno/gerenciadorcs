@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.40.0 -->
 <interface>
-  <requires lib="gtk+" version="3.6"/>
+  <requires lib="gtk+" version="3.22"/>
   <!-- interface-local-resource-path /run/user/1000/doc/1aef21fb/home -->
   <object class="GtkFileChooserDialog" id="escolher_arquivo">
     <property name="can-focus">True</property>
+    <property name="double-buffered">False</property>
     <property name="modal">True</property>
     <property name="destroy-with-parent">True</property>
     <property name="type-hint">dialog</property>
@@ -13,11 +14,13 @@
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can-focus">False</property>
+        <property name="double-buffered">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="layout-style">end</property>
             <child>
               <object class="GtkButton" id="importar_csv">
@@ -26,6 +29,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
                 <signal name="clicked" handler="on_importar_csv_clicked" swapped="no"/>
               </object>
               <packing>
@@ -40,6 +44,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
                 <signal name="clicked" handler="on_fechar_diag_escolher_arquivo_clicked" swapped="no"/>
               </object>
               <packing>
@@ -63,6 +68,7 @@
   </object>
   <object class="GtkFileChooserDialog" id="escolher_pasta">
     <property name="can-focus">False</property>
+    <property name="double-buffered">False</property>
     <property name="modal">True</property>
     <property name="destroy-with-parent">True</property>
     <property name="type-hint">dialog</property>
@@ -72,11 +78,13 @@
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can-focus">False</property>
+        <property name="double-buffered">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="layout-style">end</property>
             <child>
               <object class="GtkButton" id="salvar_csv">
@@ -99,6 +107,7 @@
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
                 <signal name="clicked" handler="on_fechar_diag_escolher_pasta_clicked" swapped="no"/>
               </object>
               <packing>
@@ -129,6 +138,10 @@
                 <property name="hexpand">True</property>
                 <property name="has-frame">False</property>
                 <property name="shadow-type">none</property>
+                <property name="primary-icon-activatable">False</property>
+                <property name="secondary-icon-activatable">False</property>
+                <property name="primary-icon-sensitive">False</property>
+                <property name="secondary-icon-sensitive">False</property>
                 <style>
                   <class name="Nome do Arquivo"/>
                 </style>
@@ -165,6 +178,7 @@
   </object>
   <object class="GtkWindow" id="main_window">
     <property name="can-focus">False</property>
+    <property name="double-buffered">False</property>
     <property name="title" translatable="yes">Gerenciador de Contas e Senhas</property>
     <property name="window-position">center</property>
     <property name="default-width">600</property>
@@ -175,15 +189,18 @@
       <object class="GtkBox" id="caixa_principal">
         <property name="visible">True</property>
         <property name="can-focus">False</property>
+        <property name="double-buffered">False</property>
         <property name="orientation">vertical</property>
         <child>
           <object class="GtkMenuBar" id="barra_menu">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <child>
               <object class="GtkMenuItem">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="label" translatable="yes">_Arquivo</property>
                 <property name="use-underline">True</property>
                 <child type="submenu">
@@ -245,6 +262,7 @@
             <child>
               <object class="GtkMenuItem">
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="label" translatable="yes">_Editar</property>
                 <property name="use-underline">True</property>
                 <child type="submenu">
@@ -294,6 +312,7 @@
             <child>
               <object class="GtkMenuItem">
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="label" translatable="yes">_Ver</property>
                 <property name="use-underline">True</property>
               </object>
@@ -302,6 +321,7 @@
               <object class="GtkMenuItem">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="label" translatable="yes">Aj_uda</property>
                 <property name="use-underline">True</property>
                 <child type="submenu">
@@ -332,11 +352,13 @@
         <child>
           <object class="GtkBox" id="exibir">
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-top">20</property>
                 <property name="margin-bottom">20</property>
@@ -354,6 +376,7 @@
               <object class="GtkGrid" id="grid">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="margin-top">10</property>
                 <property name="margin-bottom">10</property>
                 <property name="row-homogeneous">True</property>
@@ -396,6 +419,7 @@
               <object class="GtkTreeView" id="lista">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="margin-top">10</property>
                 <property name="margin-bottom">10</property>
                 <property name="activate-on-single-click">True</property>
@@ -414,6 +438,7 @@
               <object class="GtkButtonBox">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="margin-top">10</property>
                 <property name="margin-bottom">10</property>
                 <property name="layout-style">start</property>
@@ -530,6 +555,7 @@ Backup .csv</property>
   </object>
   <object class="GtkDialog" id="dialogo">
     <property name="can-focus">False</property>
+    <property name="double-buffered">False</property>
     <property name="title" translatable="yes">Mensagem</property>
     <property name="window-position">center-always</property>
     <property name="type-hint">dialog</property>
@@ -537,11 +563,13 @@ Backup .csv</property>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can-focus">False</property>
+        <property name="double-buffered">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="halign">center</property>
             <property name="margin-left">5</property>
             <property name="margin-right">5</property>
@@ -554,6 +582,7 @@ Backup .csv</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -575,6 +604,7 @@ Backup .csv</property>
           <object class="GtkLabel" id="rotulo">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="margin-top">30</property>
@@ -604,7 +634,7 @@ Backup .csv</property>
     <property name="icon">/snap/gerenciadorcs/current/meta/gui/gerenciadorcs.png</property>
     <property name="type-hint">dialog</property>
     <property name="transient-for">main_window</property>
-    <property name="program-name">Gerenciador de Contas e Senhas</property>
+    <property name="program-name">Gerenciador CS</property>
     <property name="version">Versão 4.0</property>
     <property name="copyright" translatable="yes">Copyright © 2025 Junio da Silva Damasceno. Todos os Direitos Reservados.</property>
     <property name="comments" translatable="yes">O “Gerenciador de Contas e Senhas” de Junio da Silva Damasceno é uma plataforma segura para armazenar contas e senhas. Não se conecta à internet, não armazena dados remotamente e não faz login em contas cadastradas. As informações são criptografadas localmente no computador do usuário.
@@ -665,6 +695,7 @@ Telefone: 5531982580469</property>
   </object>
   <object class="GtkDialog" id="login">
     <property name="can-focus">True</property>
+    <property name="double-buffered">False</property>
     <property name="title" translatable="yes">Login</property>
     <property name="resizable">False</property>
     <property name="window-position">center-always</property>
@@ -677,11 +708,13 @@ Telefone: 5531982580469</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox1">
         <property name="can-focus">False</property>
+        <property name="double-buffered">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox" id="dialog-action_area">
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="halign">center</property>
             <property name="valign">center</property>
             <property name="margin-left">10</property>
@@ -695,6 +728,7 @@ Telefone: 5531982580469</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -708,6 +742,7 @@ Telefone: 5531982580469</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -722,6 +757,7 @@ novo usuário</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -741,6 +777,7 @@ novo usuário</property>
           <object class="GtkGrid">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="halign">center</property>
             <property name="row-homogeneous">True</property>
             <child>
@@ -748,6 +785,7 @@ novo usuário</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="margin-left">11</property>
                 <property name="margin-right">10</property>
                 <property name="label" translatable="yes">Bem vindo ao Gerenciador de Contas e Senhas!
@@ -765,6 +803,7 @@ cadastre um novo usuário.</property>
                 <property name="visible">True</property>
                 <property name="sensitive">False</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">center</property>
                 <property name="valign">center</property>
                 <property name="margin-left">5</property>
@@ -789,12 +828,14 @@ cadastre um novo usuário.</property>
           <object class="GtkBox" id="box1">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="halign">center</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel" id="título_usuário">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="margin-top">10</property>
                 <property name="margin-bottom">2</property>
                 <property name="label" translatable="yes">Usuário:</property>
@@ -810,8 +851,10 @@ cadastre um novo usuário.</property>
               <object class="GtkEntry" id="msg_aux">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">10</property>
+                <property name="has-frame">False</property>
                 <property name="shadow-type">none</property>
                 <property name="primary-icon-activatable">False</property>
                 <property name="primary-icon-sensitive">False</property>
@@ -826,6 +869,7 @@ cadastre um novo usuário.</property>
               <object class="GtkLabel" id="Título_senha">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="margin-bottom">2</property>
                 <property name="label" translatable="yes">Senha:</property>
                 <property name="xalign">0</property>
@@ -840,15 +884,19 @@ cadastre um novo usuário.</property>
               <object class="GtkEntry" id="msg_pux">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">10</property>
                 <property name="visibility">False</property>
+                <property name="has-frame">False</property>
                 <property name="invisible-char">●</property>
                 <property name="max-width-chars">0</property>
                 <property name="shadow-type">none</property>
-                <property name="primary-icon-stock">gtk-dialog-authentication</property>
+                <property name="primary-icon-name">dialog-password</property>
                 <property name="primary-icon-activatable">False</property>
+                <property name="secondary-icon-activatable">False</property>
                 <property name="primary-icon-sensitive">False</property>
+                <property name="secondary-icon-sensitive">False</property>
                 <property name="input-purpose">password</property>
               </object>
               <packing>
@@ -874,16 +922,20 @@ cadastre um novo usuário.</property>
   </object>
   <object class="GtkDialog" id="new_user">
     <property name="can-focus">False</property>
+    <property name="double-buffered">False</property>
+    <property name="title" translatable="yes">Novo Usuário</property>
     <property name="type-hint">dialog</property>
     <property name="transient-for">login</property>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can-focus">False</property>
+        <property name="double-buffered">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="margin-top">10</property>
             <property name="layout-style">end</property>
             <child>
@@ -892,6 +944,7 @@ cadastre um novo usuário.</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -905,6 +958,7 @@ cadastre um novo usuário.</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -923,6 +977,7 @@ cadastre um novo usuário.</property>
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="halign">start</property>
             <property name="margin-top">10</property>
             <property name="margin-bottom">2</property>
@@ -939,8 +994,13 @@ cadastre um novo usuário.</property>
           <object class="GtkEntry" id="user_name">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
+            <property name="double-buffered">False</property>
             <property name="margin-bottom">10</property>
             <property name="activates-default">True</property>
+            <property name="primary-icon-activatable">False</property>
+            <property name="secondary-icon-activatable">False</property>
+            <property name="primary-icon-sensitive">False</property>
+            <property name="secondary-icon-sensitive">False</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -952,6 +1012,7 @@ cadastre um novo usuário.</property>
           <object class="GtkLabel">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="halign">start</property>
             <property name="margin-bottom">2</property>
             <property name="label" translatable="yes">Senha:</property>
@@ -967,10 +1028,15 @@ cadastre um novo usuário.</property>
           <object class="GtkEntry" id="user_p">
             <property name="visible">True</property>
             <property name="can-focus">True</property>
+            <property name="double-buffered">False</property>
             <property name="margin-bottom">10</property>
             <property name="visibility">False</property>
             <property name="invisible-char">●</property>
             <property name="activates-default">True</property>
+            <property name="primary-icon-activatable">False</property>
+            <property name="secondary-icon-activatable">False</property>
+            <property name="primary-icon-sensitive">False</property>
+            <property name="secondary-icon-sensitive">False</property>
             <property name="input-purpose">password</property>
           </object>
           <packing>
@@ -988,6 +1054,7 @@ cadastre um novo usuário.</property>
   </object>
   <object class="GtkDialog" id="window_alterar">
     <property name="can-focus">False</property>
+    <property name="double-buffered">False</property>
     <property name="modal">True</property>
     <property name="type-hint">dialog</property>
     <property name="transient-for">main_window</property>
@@ -995,11 +1062,13 @@ cadastre um novo usuário.</property>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can-focus">False</property>
+        <property name="double-buffered">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="layout-style">end</property>
             <child>
               <object class="GtkButton" id="botao_confirmar_alteracao">
@@ -1008,6 +1077,7 @@ alteração</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
                 <signal name="clicked" handler="on_botao_confirmar_alteracao_clicked" swapped="no"/>
               </object>
               <packing>
@@ -1022,6 +1092,7 @@ alteração</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
                 <signal name="clicked" handler="on_botao_voltara_clicked" swapped="no"/>
               </object>
               <packing>
@@ -1041,11 +1112,13 @@ alteração</property>
           <object class="GtkBox" id="alterar">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-top">20</property>
                 <property name="margin-bottom">20</property>
@@ -1062,6 +1135,7 @@ alteração</property>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">2</property>
                 <property name="label" translatable="yes">Nome da conta:
@@ -1078,8 +1152,14 @@ preencha apenas se desejar alterar o nome da conta</property>
               <object class="GtkEntry" id="conta_nova">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">10</property>
+                <property name="has-frame">False</property>
+                <property name="primary-icon-activatable">False</property>
+                <property name="secondary-icon-activatable">False</property>
+                <property name="primary-icon-sensitive">False</property>
+                <property name="secondary-icon-sensitive">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1091,6 +1171,7 @@ preencha apenas se desejar alterar o nome da conta</property>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">2</property>
                 <property name="label" translatable="yes">Nome de Usuário:
@@ -1107,8 +1188,10 @@ Preencha apenas se desejar alterar o nome de usuário.</property>
               <object class="GtkEntry" id="usuario_novo">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">10</property>
+                <property name="has-frame">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1120,6 +1203,7 @@ Preencha apenas se desejar alterar o nome de usuário.</property>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">2</property>
                 <property name="label" translatable="yes">Nova senha:
@@ -1136,8 +1220,10 @@ Obrigatório, se não for alterar, repita a atual.</property>
               <object class="GtkEntry" id="senha_nova">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">10</property>
+                <property name="has-frame">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1157,16 +1243,19 @@ Obrigatório, se não for alterar, repita a atual.</property>
   </object>
   <object class="GtkDialog" id="window_cadastrar">
     <property name="can-focus">False</property>
+    <property name="double-buffered">False</property>
     <property name="type-hint">dialog</property>
     <property name="transient-for">main_window</property>
     <child internal-child="vbox">
       <object class="GtkBox">
         <property name="can-focus">False</property>
+        <property name="double-buffered">False</property>
         <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child internal-child="action_area">
           <object class="GtkButtonBox">
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="layout-style">end</property>
             <child>
               <object class="GtkButton" id="botao_gravar_registro">
@@ -1175,6 +1264,7 @@ Registro</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
                 <signal name="clicked" handler="on_botao_gravar_registro_clicked" swapped="no"/>
               </object>
               <packing>
@@ -1189,6 +1279,7 @@ Registro</property>
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
                 <property name="receives-default">True</property>
+                <property name="double-buffered">False</property>
                 <signal name="clicked" handler="on_botao_voltarc_clicked" swapped="no"/>
               </object>
               <packing>
@@ -1208,11 +1299,13 @@ Registro</property>
           <object class="GtkBox" id="cadastrar">
             <property name="visible">True</property>
             <property name="can-focus">False</property>
+            <property name="double-buffered">False</property>
             <property name="orientation">vertical</property>
             <child>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-top">20</property>
                 <property name="margin-bottom">20</property>
@@ -1228,6 +1321,7 @@ Registro</property>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">2</property>
                 <property name="label" translatable="yes">Nome da Conta (ex. Hotmail, Gmail, Netflix, GitHub, etc.)</property>
@@ -1243,8 +1337,14 @@ Registro</property>
               <object class="GtkEntry" id="conta_name">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">10</property>
+                <property name="has-frame">False</property>
+                <property name="primary-icon-activatable">False</property>
+                <property name="secondary-icon-activatable">False</property>
+                <property name="primary-icon-sensitive">False</property>
+                <property name="secondary-icon-sensitive">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1256,6 +1356,7 @@ Registro</property>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">2</property>
                 <property name="label" translatable="yes">Nome de Usuário (ex. felipe@hotmail.com, Anal.Flores, etc.)</property>
@@ -1271,9 +1372,15 @@ Registro</property>
               <object class="GtkEntry" id="nome_usuario">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">10</property>
+                <property name="has-frame">False</property>
                 <property name="shadow-type">none</property>
+                <property name="primary-icon-activatable">False</property>
+                <property name="secondary-icon-activatable">False</property>
+                <property name="primary-icon-sensitive">False</property>
+                <property name="secondary-icon-sensitive">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1285,6 +1392,7 @@ Registro</property>
               <object class="GtkLabel">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">2</property>
                 <property name="label" translatable="yes">Senha</property>
@@ -1300,8 +1408,14 @@ Registro</property>
               <object class="GtkEntry" id="conta_ps">
                 <property name="visible">True</property>
                 <property name="can-focus">True</property>
+                <property name="double-buffered">False</property>
                 <property name="halign">start</property>
                 <property name="margin-bottom">10</property>
+                <property name="has-frame">False</property>
+                <property name="primary-icon-activatable">False</property>
+                <property name="secondary-icon-activatable">False</property>
+                <property name="primary-icon-sensitive">False</property>
+                <property name="secondary-icon-sensitive">False</property>
               </object>
               <packing>
                 <property name="expand">False</property>

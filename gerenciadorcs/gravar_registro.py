@@ -1,6 +1,4 @@
-import locale
-idioma = locale.getdefaultlocale()
-def gravar_registro(aux, conta_name, nome_usuario, conta_ps, ac, nu, se, asu, tabela_ux):
+def gravar_registro(aux, conta_name, nome_usuario, conta_ps, ac, nu, se, asu, tabela_ux, idioma):
 
     chave = 0
     c = 0
