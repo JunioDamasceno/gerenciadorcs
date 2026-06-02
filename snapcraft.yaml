@@ -35,10 +35,11 @@ apps:
     # 'bin/gerenciadorcs' é gerado pelo entry_point que adicionamos no setup.py
     command: bin/gerenciadorcs
     plugs:
-      - desktop
-      - desktop-legacy
-      - wayland
-      - x11
+      #- desktop
+      #- desktop-legacy
+      #- wayland
+      #- x11
       - home
-      - gsettings
-      - mount-observe
+      #- gsettings
+      #- mount-observe
+      - system-observe
