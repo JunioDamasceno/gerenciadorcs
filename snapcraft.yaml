@@ -34,10 +34,9 @@ apps:
     command: bin/gerenciadorcs
     extensions: [gnome]
     # 'bin/gerenciadorcs' é gerado pelo entry_point que adicionamos no setup.py
-    GTK_THEME: Adwaita
-    GTK_EXE_PREFIX: /snap/gerenciadorcs/current/usr
-    # O comando abaixo limpa os avisos do xapp e atk-bridge no terminal
-    GTK_MODULES: ""
+    environment:
+      GTK_THEME: Adwaita
+      GTK_MODULES: ""
     plugs:
       - desktop
       - desktop-legacy
