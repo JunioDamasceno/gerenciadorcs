@@ -1,8 +1,22 @@
 #!/usr/bin/python
 # encoding: utf-8
 
-import sys
 import os
+import sys
+
+# ==============================================================================
+# CORREÇÃO DE RENDEREZIZAÇÃO GRÁFICA (GLITCHES VISUAIS NATIVOS E SNAP)
+# ==============================================================================
+# 1. Desativa a renderização por hardware (Mesa/X11) que causa travamentos no hover
+os.environ["GSK_RENDERER"] = "cairo"
+os.environ["GDK_RENDERING"] = "cairo"
+
+# 2. Força o GTK a usar o backend de renderização de software mais estável
+os.environ["GDK_DEBUG"] = "no-visual-updates"
+
+# 3. Limpa os módulos que geram erros de terminal e poluição visual
+os.environ["GTK_MODULES"] = ""
+# ==============================================================================
 
 #Importa a biblioteca Gtk
 import gi
@@ -80,7 +94,7 @@ class main_window:
         #Constroi cada janela/tela e/ou módulo que compõe o programa,
         #estas definições estão contidas no arquivo 'interface.glade'
         self.main_window = self.builder.get_object('main_window')
-        self.main_window.show()
+        #self.main_window.show()
         self.login = self.builder.get_object("login")
         self.new_user = self.builder.get_object("new_user")
         self.cadastrar = self.builder.get_object('window_cadastrar')
@@ -97,6 +111,36 @@ class main_window:
 
         self.grid.set_column_homogeneous(True)
         self.grid.set_row_homogeneous(True)
+
+        # 1. Puxe a referência dos botões do Glade (substitua pelos IDs reais do seu Glade)
+        btn_fechar = self.builder.get_object("fechar")
+        btn_alterar = self.builder.get_object("botao_alterar")
+        btn_excluir = self.builder.get_object("excluir_item")
+        btn_cadastrar = self.builder.get_object("botao_cadastrar1")
+        btn_backup = self.builder.get_object("backup_csv")
+        btn_importar = self.builder.get_object("importar_backup_csv")
+
+        botoes_inferiores = [
+            btn_fechar,
+            btn_alterar,
+            btn_excluir,
+            btn_cadastrar,
+            btn_backup,
+            btn_importar,
+        ]
+
+        # 2. Aplique a correção de otimização de renderização para cada um
+        for botao in botoes_inferiores:
+            if botao:
+                # Desativa o relevo dinâmico que força o recalculo de sombras no hover
+                botao.set_relief(Gtk.ReliefStyle.NONE)
+
+                # Impede que o botão mude de tamanho milimetricamente ao ganhar foco
+                botao.set_focus_on_click(False)
+
+                # Força o botão a não disparar redesenho em cascata no container pai
+                botao.set_hexpand(False)
+                botao.set_vexpand(False)
 
         #Esta variável serve para armazenar qual usuário está logado no programa,
         #controla quais informações ele irá armazenar e quais informações ele
@@ -227,6 +271,8 @@ class main_window:
                 
         # Se usuário e senha estiverem corretos ele exibe o 'menu' do sistema.
         if (self.ulogin[1] == 2):
+
+            self.main_window.show()
 
             self.exibir.show()
 
