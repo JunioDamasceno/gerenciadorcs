@@ -25,3 +25,5 @@ Notas de la versión 4.0:
 - Se han corregido errores en el archivo .png del logotipo del software.
 - Se han corregido errores de dependencia.
 - Se han mejorado las interfaces.
+
+  [![Get it from the Snap Store](https://snapcraft.io/en/dark/install.svg)](https://snapcraft.io/gerenciadorcs)
